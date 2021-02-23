@@ -1,6 +1,8 @@
 import random
 from images import IMAGES
 from word import words1
+
+
 print("hi")
 name=input("enter your name--")
 print("welcome to ",name,"to play HANGMAN Game \n")
@@ -14,11 +16,13 @@ word1=[i for i in word]
 gues=['_' for i in word]
 chance=8
 countofwronganswer=0
+
 while chance>0:
     for i in gues:
         print(i,end=' ')
 
     print()
+    
     a=input('enter any latter---')
     if a==word:
         print(" congratulations you win !!!!! ")
@@ -28,6 +32,7 @@ while chance>0:
     elif a in word1:
         string=''
         l=0
+        
         while l<len(word1):
 
             if word1[l]==a:
@@ -37,17 +42,20 @@ while chance>0:
             else:
                 string+='_'
             l+=1
+        
         gues=[i for i in string]
         if gues==word1:
             print(" congratulation /\ /\ you win\n ")
             chance=0
             break 
+    
     else:
         print(IMAGES[countofwronganswer])
         chance=chance-1
         countofwronganswer+=1
         print('your guess is wrong')
         print("you have only this much chance",chance,"\n")
+    
     
     if chance==0:
         print(' soo sad you lost ..',"your word is ",word)
